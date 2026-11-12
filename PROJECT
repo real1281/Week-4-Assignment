@@ -1,0 +1,227 @@
+# Week-4-Assignment
+
+WEEK 4: Data Visualization & Capstone Project
+Learning Objectives
+1. Power BI / Tableau Fundamentals
+
+Learn how to:
+
+Import data from Excel, CSV, SQL databases, or Google Sheets
+Clean and transform data
+Create visualizations
+Build interactive dashboards
+Use filters and slicers
+Create calculated fields/measures
+Design stakeholder-friendly reports
+2. Storytelling with Data
+
+A good dashboard tells a story, not just displays charts.
+
+Choose the Right Chart
+Business Question	Best Chart
+Revenue over time	Line Chart
+Compare categories	Bar/Column Chart
+Percentage contribution	Pie/Donut Chart
+Correlation analysis	Scatter Plot
+KPI tracking	Cards/KPI Visuals
+Geographic trends	Maps
+Dashboard Design Principles
+
+✅ Keep the most important KPIs at the top
+
+✅ Use consistent colors
+
+✅ Avoid clutter
+
+✅ Highlight actionable insights
+
+✅ Use interactive filters
+
+✅ Focus on business questions
+
+Assignment: Business Metrics Dashboard
+Key Metrics to Visualize
+Executive KPIs
+Total Revenue
+Total Orders
+Average Order Value
+Number of Customers
+Profit Margin
+Sales Analysis
+
+Visuals:
+
+Revenue by Category
+Revenue by Region
+Monthly Sales Trend
+Top 10 Customers
+Best-Selling Products
+Suggested Dashboard Layout
+Plain Text
+------------------------------------------------
+| Revenue | Profit | Orders | Customers |
+------------------------------------------------
+ 
+| Sales Trend (Line Chart) |
+------------------------------------------------
+ 
+| Revenue by Category | Revenue by Region |
+------------------------------------------------
+ 
+| Top Customers | Product Performance |
+------------------------------------------------
+ 
+| Filters: Year | Region | Category |
+------------------------------------------------
+Stakeholder Summary Example
+Executive Summary
+
+Sales performance shows steady growth across the reporting period, with revenue increasing consistently throughout the year. The Technology category generated the highest revenue and contributed the largest share of overall sales.
+
+The West region outperformed other regions, accounting for a significant proportion of total revenue. Analysis of customer purchasing patterns indicates that a small group of high-value customers contributes substantially to sales performance.
+
+Monthly trend analysis revealed peak sales during the fourth quarter, suggesting strong seasonal demand. Based on these findings, marketing and inventory planning should focus on high-performing categories and regions to maximize future growth.
+
+Capstone Project: End-to-End Analysis
+Step 1: Data Cleaning in Python
+
+Using Pandas:
+
+Python
+import pandas as pd
+ 
+df = pd.read_csv("sales_data.csv")
+ 
+# Check missing values
+print(df.isnull().sum())
+ 
+# Remove duplicates
+df.drop_duplicates(inplace=True)
+ 
+# Fill missing values
+df.fillna(method="ffill", inplace=True)
+Step 2: Exploratory Data Analysis
+Descriptive Statistics
+Python
+df.describe()
+ 
+Revenue by Category
+Python
+df.groupby("Category")["Revenue"].sum()
+Revenue by Region
+Python
+df.groupby("Region")["Revenue"].sum()
+Step 3: SQL Analysis
+Top Customers
+SQL
+SELECT CustomerName,
+SUM(Revenue) AS TotalRevenue
+FROM Sales
+GROUP BY CustomerName
+ORDER BY TotalRevenue DESC
+LIMIT 10;
+Average Order Value
+SQL
+SELECT AVG(OrderAmount) AS AvgOrderValue
+FROM Orders;
+Monthly Revenue Trend
+SQL
+SELECT YEAR(OrderDate) AS Year,
+MONTH(OrderDate) AS Month,
+SUM(Revenue) AS TotalRevenue
+FROM Sales
+GROUP BY YEAR(OrderDate),
+MONTH(OrderDate)
+ORDER BY Year, Month;
+Step 4: Excel Analysis
+
+Create:
+
+Pivot Tables
+Revenue Summary
+Category Analysis
+Yearly Trends
+
+Create charts:
+
+Line Chart
+Bar Chart
+Pie Chart
+Step 5: Power BI/Tableau Dashboard
+Required Visuals
+
+✅ KPI Cards
+
+✅ Revenue Trend
+
+✅ Sales by Category
+
+✅ Sales by Region
+
+✅ Top Customers
+
+✅ Product Performance
+
+✅ Interactive Filters
+
+Step 6: Final Report
+Suggested Structure
+1. Project Overview
+Business problem
+Dataset description
+2. Data Cleaning
+Missing values handled
+Duplicates removed
+New fields created
+3. Data Analysis
+Key statistics
+Category performance
+Customer insights
+4. Visualizations
+Excel charts
+Power BI/Tableau dashboard screenshots
+5. Findings
+
+Example:
+
+Technology category generated the highest sales.
+West region showed strongest growth.
+Top 10 customers contributed 35% of total revenue.
+Q4 achieved highest revenue.
+6. Recommendations
+Focus marketing on top-performing regions.
+Expand high-margin product categories.
+Create loyalty programs for top customers.
+Improve sales in underperforming regions.
+Deliverables Checklist
+1. Source Code
+Python scripts (.py)
+Jupyter Notebook (.ipynb)
+SQL query files
+2. Dashboard
+Power BI (.pbix) or Tableau workbook
+3. Final Report
+PDF report containing:
+Charts
+Analysis
+Insights
+Recommendations
+4. Demo Recording
+3–10 minute walkthrough of:
+Dataset
+Analysis process
+Dashboard
+Findings
+5. Repository (Recommended)
+
+GitHub structure:
+
+Plain Text
+Capstone-Project/
+│
+├── Data/
+├── SQL/
+├── Python/
+├── Dashboard/
+├── Report/
+└── README.md
